@@ -1,4 +1,62 @@
-p#start-info {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: block; 
+  font-size: 16px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0; 
+}
+
+p {
   font-size: 3em;
+  margin: 0;
   text-align: center;
+}
+
+.main {
+    display: block;
+    width: auto;
+    height: 100%;
+    margin: auto 10%;
+    padding: 15vh 7vw 10vh;
+    background-color: palegoldenrod;
+    position: relative;
+    /* background-image: url('../../image/background.jpg') */
+}
+
+.container {
+  padding: 20px 10%;
+  margin: 25px;
+  width: auto;
+  height: auto;
+}
+
+.header {
+  width: auto;
+  position: relative;
+  top: 5px;
+  left: calc(50% - 1267.22/2 );
+}
+
+.done {
+  width: 500px;
+  position: relative;
+  top: 25%;
+  left:100px;
+}
+
+.undone {
+  position: relative;
+  top: 50%;
+  left: 100px;
+}
+
+.adder {
+  position: relative;
+  top: 75%;
+  left: 100px;
+
 }
