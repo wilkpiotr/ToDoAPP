@@ -3,60 +3,146 @@
 }
 
 body {
-  display: block; 
+  font-family: 'EB Garamond', serif;
   font-size: 16px;
   line-height: 1.2;
   margin: 0;
   padding: 0; 
 }
 
-p {
-  font-size: 3em;
-  margin: 0;
-  text-align: center;
-}
-
 .main {
-    display: block;
-    width: auto;
-    height: 100%;
-    margin: auto 10%;
-    padding: 15vh 7vw 10vh;
-    background-color: palegoldenrod;
-    position: relative;
-    /* background-image: url('../../image/background.jpg') */
+  position: relative;
+  margin: 0 20%;
+  min-height: 70vh;
+  /* padding: 15vh 7vw 10vh; */
+  background-color: palegoldenrod;
+  position: relative;
+  color: white;
+  text-transform: capitalize;
+  background: url('/image/bgc.png') no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
 }
-
-.container {
-  padding: 20px 10%;
-  margin: 25px;
-  width: auto;
-  height: auto;
-}
-
 .header {
   width: auto;
   position: relative;
-  top: 5px;
-  left: calc(50% - 1267.22/2 );
+  padding: 20px;
+  margin-bottom: 50px;
+}
+h1 {
+  font-size: 3rem;
+  font-family: 'Righteous', cursive;
+  margin: 0;
+  text-align: center;
+}
+.container {
+  padding: 20px 10%;
+  width: auto;
+  height: auto;
+}
+.true {
+  text-decoration: line-through;
+}
+input[type="checkbox"] {
+  display: inline-block;
+  visibility: hidden;
+}
+.task {
+  width: auto;
+  margin-bottom: 16px;
+  position: relative;
+}
+label {
+  font-size: 1.5em;
+  position: relative;
+  padding: 0 60px;
+  display: inline-block;
+  z-index: 3;
+}
+label::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 0;
+  z-index: 5;
+  display: block;
+  height: 20px;
+  width: 20px;
+  background-color: aliceblue;
+  border-radius: 50%;
+  border: 3px solid aliceblue;
+  box-sizing: border-box;
+}
+input:checked + label::before {
+  background-color: coral;
+}
+.btnDelete {
+  background-color: snow;
+  color: red;
+  border: none;
+  padding: 3px 5px;
+  border-radius: 2px;
+}
+.btnDelete:hover, .btnDelete:focus {
+  color: snow;
+  background-color: red;
+  border: none;
+  outline: none;
+}
+.add {
+  margin-bottom: 48px;
 }
 
-.done {
-  width: 500px;
-  position: relative;
-  top: 25%;
-  left:100px;
+#addTask {
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-left: 20px;
+  padding: 16px;
+  width: 50%;
+  background-color: mintcream;
+  color: black;
+  border: 2px solid transparent;
+  border-radius: 5px;
 }
-
-.undone {
-  position: relative;
-  top: 50%;
-  left: 100px;
+#addTask:focus {
+  outline: none;
+  border: 2px solid crimson;
 }
-
-.adder {
-  position: relative;
-  top: 75%;
-  left: 100px;
-
+.btnAddTask {
+  font-size: 20px;
+  margin-left: 20px;
+  padding: 16px;
+  border-radius: 5px;
+  border: none;
+  color: midnightblue;
+  background-color: linen;
+  border: 2px solid transparent;
+}
+.btnAddTask:hover {
+  background-color: tomato;
+  color: wheat;
+}
+#addTask::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: darkslategrey;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+}
+#addTask::-moz-placeholder { /* Firefox 19+ */
+  color: darkslategrey;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+}
+#addTask:-ms-input-placeholder { /* IE 10+ */
+  color: darkslategrey;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+}
+#addTask:-moz-placeholder { /* Firefox 18- */
+  color: darkslategrey;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+}
+button {
+  transition: color .2s ease-in-out, background-color .2s ease-in-out;
 }
