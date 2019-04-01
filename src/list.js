@@ -1,39 +1,11 @@
 import axios from 'axios';
-import { bindPatch } from './patch';
 import { bindButtonDelete } from './delete';
+
 
 let undoneTaskList;
 let undoneTasks; 
 let doneTaskList;
 let doneTasks;
-
-const fetchList = () => {
-return axios
-.get('http://localhost:3000/todo')
-.then((result) => { return result.data; })
-}
-
-const getListDoneHTML = (tasks) => {
-    doneTasks = tasks.filter((task) => {
-        return task.done === true;
-    })
-     return doneTasks.reduce((html, task) => {  
-        return html + `<div class="task"><input type="checkbox" name="task" id="${task.id}" class="${task.done}" checked>
-        <label for="${task.id}" class="${task.done}">${task.task}</label><button class="btnDelete" id="${task.id}" type="button" name="delete" style="display: none;">Delete Task</button></div>`
-    },'');
-}
-
-
-const getListUndoneHTML = (tasks) => {
-    undoneTasks = tasks.filter((task) => {
-        return task.done === false;
-    })
-     return undoneTasks.reduce((html, task) => {   
-        return html + `<div class="task"><input type="checkbox" name="task" id="${task.id}" class="${task.done}">
-        <label for="${task.id}" class="${task.done}">${task.task}</label><button class="btnDelete" id="${task.id}" type="button" name="delete" style="display: none;">Delete Task</button></div>`
-    },'');
-}
-
 
 export const initList = () => {
     undoneTaskList = document.querySelector('.undone-list');
@@ -47,6 +19,31 @@ export const renderList = () => {
         undoneTaskList.innerHTML = getListUndoneHTML(tasks);
         doneTaskList.innerHTML = getListDoneHTML(tasks);
     })
-    .then(bindPatch)
     .then(bindButtonDelete)
+}
+
+const fetchList = () => {
+return axios
+.get('http://localhost:3000/todo')
+.then((result) => { return result.data; })
+}
+
+const getListDoneHTML = (tasks) => {
+    doneTasks = tasks.filter((task) => {
+        return task.done === true;
+    })
+     return doneTasks.reduce((html, task) => {  
+        return html + `<div class="task"><input type="checkbox" name="task" id="${task.id}" class="${task.done}" checked disabled>
+        <label for="${task.id}" class="${task.done} task-label">${task.task}</label><button class="btnDelete" id="${task.id}" type="button" name="delete" style="display: none;">Delete Task</button></div>`
+    },'');
+}
+
+const getListUndoneHTML = (tasks) => {
+    undoneTasks = tasks.filter((task) => {
+        return task.done === false;
+    })
+     return undoneTasks.reduce((html, task) => {   
+        return html + `<div class="task"><input type="checkbox" name="task" id="${task.id}" class="${task.done}" disabled>
+        <label for="${task.id}" class="${task.done} task-label">${task.task}</label><button class="btnDelete" id="${task.id}" type="button" name="delete" style="display: none;">Delete Task</button></div>`
+    },'');
 }

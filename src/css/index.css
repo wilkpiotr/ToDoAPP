@@ -52,14 +52,14 @@ input[type="checkbox"] {
   margin-bottom: 16px;
   position: relative;
 }
-label {
+.task-label {
   font-size: 1.5em;
   position: relative;
   padding: 0 60px;
   display: inline-block;
   z-index: 3;
 }
-label::before {
+.task-label::before {
   content: "";
   position: absolute;
   top: 15%;
@@ -93,14 +93,14 @@ input:checked + label::before {
   margin-bottom: 48px;
 }
 
-#addTask {
+#addTask, #edit-input {
   font-family: 'EB Garamond', serif;
   font-size: 20px;
   letter-spacing: 2px;
   margin-left: 20px;
   padding: 16px;
   width: 50%;
-  background-color: mintcream;
+  background-color: aquamarine;
   color: black;
   border: 2px solid transparent;
   border-radius: 5px;
@@ -109,7 +109,7 @@ input:checked + label::before {
   outline: none;
   border: 2px solid crimson;
 }
-.btnAddTask {
+.btnAddTask, #edit-accept, #edit-cancel {
   font-size: 20px;
   margin-left: 20px;
   padding: 16px;
@@ -119,7 +119,7 @@ input:checked + label::before {
   background-color: linen;
   border: 2px solid transparent;
 }
-.btnAddTask:hover {
+.btnAddTask:hover, #edit-accept:hover, #edit-cancel:hover {
   background-color: tomato;
   color: wheat;
 }
@@ -145,4 +145,26 @@ input:checked + label::before {
 }
 button {
   transition: color .2s ease-in-out, background-color .2s ease-in-out;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 6; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
